@@ -1,0 +1,23 @@
+<div class="main" *ngIf="weatherData">
+  <app-search-input [sTerm]="searchTerm"></app-search-input>
+
+  <app-icon *ngIf="weatherData" [icon]="weatherData?.getIconKey(dayIndex)"></app-icon>
+  <app-day [day] = "weatherData.getDay(dayIndex)"></app-day>
+  <app-temperature [temperature]="weatherData?.getTemperature(dayIndex)" [isVisible]="true"></app-temperature>
+
+  <div [@popOverState]="stateName">
+    <div>
+      <app-weather-info [weatherInfo]="weatherData.getWeatherInfo(dayIndex)"></app-weather-info>
+    </div>
+    <div>
+      <app-sun-info [sunInfo]="weatherData?.getSunInfo(dayIndex)"></app-sun-info>
+    </div>
+  </div>
+
+  <a href="" class="btn" (click)="onClickedShowMore($event)" [@slideState]="stateName">...</a>
+
+  <ul class="weekly">
+    <app-week *ngFor="let weekday of weatherData?.forecast.forecastday; let i = index" [weekday]="weekday" [iconURL]="weekday.day.condition.code"
+      [attr.data-id]="i" (click)="onClickDay($event)" [day] ="weatherData.getDay(i)"></app-week>
+  </ul>
+</div>

@@ -1,0 +1,70 @@
+:host() {
+  display: flex;
+  flex-flow: column;
+  flex-flow: column;
+  background: #adab50;
+  height: 100%;
+}
+
+:host() ::ng-deep app-search .box,
+:host() ::ng-deep app-search .box .container-4 {
+  width: 100%
+}
+
+:host() ::ng-deep app-search-input,
+:host() ::ng-deep app-icon {
+  display: block;
+}
+
+:host() ::ng-deep app-icon {
+  height: 300px;
+}
+
+:host() ::ng-deep app-icon .wi {
+  font-size: 200px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+:host() ::ng-deep app-icon .wi:before {
+  line-height: 300px;
+}
+
+:host() ::ng-deep app-search .box .container-4 input#search {
+  width: 100%;
+  border-radius: 0;
+}
+
+.weekly {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.btn {
+  color: #fff;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  font-size: 50px;
+  transform: rotate(90deg);
+  margin-top: 10px;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+:host() /deep/ app-search-input app-search .box .container-4 input#search {
+  color: #fff;
+}

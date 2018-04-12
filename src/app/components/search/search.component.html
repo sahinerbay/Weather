@@ -1,0 +1,10 @@
+<div class="box">
+  <div class="container-4">
+    <input appFocus type="search" id="search" placeholder="Search for city..." (keyup)="onKeyupFindCity($event.target.value)" [value] = "!searchTerm ? '' : searchTerm"/>
+    <button class="icon"><i class="fa fa-search"></i></button>
+  </div>
+  <ul *ngIf="visible" (click)="onClickCitySearch($event)" class="city-list">
+    <li *ngIf ="!cities?.length" class="city">No city found!</li>
+    <app-auto-complete *ngFor="let city of cities" [city]="city"></app-auto-complete>
+  </ul>
+</div>

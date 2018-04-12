@@ -1,0 +1,30 @@
+:host() {
+  height: 100%;
+  display: block;
+}
+
+:host() ::ng-deep app-search-input {}
+
+:host() ::ng-deep app-logo {
+  height: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+:host() ::ng-deep app-logo .logo {
+  max-height: 400px;
+}
+
+:host() ::ng-deep app-logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+:host() ::ng-deep app-search-input {
+  display: block;
+}
+
+:host() ::ng-deep app-search-input app-search .box {
+  width: 250px;
+}

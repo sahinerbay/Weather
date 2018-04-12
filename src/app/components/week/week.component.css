@@ -1,0 +1,24 @@
+:host() {
+    display: inline-block;
+}
+
+:host() /deep/ app-icon :hover {
+    transform: scale(1.2, 1.2);
+    cursor: pointer;
+}
+
+:host() /deep/ app-icon {
+    height: 100px;
+}
+
+:host() /deep/ app-icon .wi {
+    font-size: 50px;
+}
+
+:host() ::ng-deep app-icon .wi:before {
+    line-height: 30px;
+  }
+
+:host() /deep/ app-min-max-temp .temp {
+    font-size: 20px;
+}

@@ -1,0 +1,19 @@
+<div *ngIf="isVisible">
+  <p class="avg-temp">
+    <span>Now</span>
+    {{temperature?.avgtemp_c}}
+    <i class="wi wi-degrees"></i>
+  </p>
+  <p class="feel-temp" *ngIf="temperature?.feelslike_c">
+    <span>Real Feel</span>
+    {{temperature?.feelslike_c}}
+    <i class="wi wi-thermometer"></i>
+  </p>
+</div>
+
+<p *ngIf="!isVisible">
+  {{temperature?.mintemp_c.toFixed()}}
+  <i class="wi wi-degrees"></i>
+  / {{temperature?.maxtemp_c.toFixed()}}
+  <i class="wi wi-degrees"></i>
+</p>
