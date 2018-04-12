@@ -9,5 +9,4 @@ export class FocusDirective {
     renderer.setProperty(el.nativeElement, 'autofocus', true);
   }
 
-
 }

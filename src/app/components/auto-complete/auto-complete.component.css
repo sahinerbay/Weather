@@ -1,7 +1,9 @@
 .city {
   color: #d6d6d6;
   list-style: none;
-  font: 400 13.3333px Arial;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 0.8rem;
+  margin-bottom: .2rem;
 }
 
 .city:hover {

@@ -2,16 +2,16 @@
     display: inline-block;
 }
 
-:host() /deep/ app-icon :hover {
+:host() ::ng-deep app-icon :hover {
     transform: scale(1.2, 1.2);
     cursor: pointer;
 }
 
-:host() /deep/ app-icon {
+:host() ::ng-deep app-icon {
     height: 100px;
 }
 
-:host() /deep/ app-icon .wi {
+:host() ::ng-deep app-icon .wi {
     font-size: 50px;
 }
 
@@ -19,6 +19,6 @@
     line-height: 30px;
   }
 
-:host() /deep/ app-min-max-temp .temp {
+:host() ::ng-deep app-min-max-temp .temp {
     font-size: 20px;
 }

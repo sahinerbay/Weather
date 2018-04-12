@@ -8,52 +8,35 @@ export class BackgroundDirective {
 	constructor(private el: ElementRef,
 		private renderer: Renderer2) { }
 
-	background;
+		backgroundColor: string
 
 	@Input('appBackground')
 	set code(text: string) {
-		this.background = this.getWeatherImage(text); 
+		this.backgroundColor = this.getWeatherImage(text);
 		let part = this.el.nativeElement.parentNode;
-		this.renderer.setStyle(part, 'backgroundColor', this.background.color);
+		this.renderer.setStyle(part, 'backgroundColor', this.backgroundColor);
 	}
 
-	getWeatherImage(text: string) {
+	getWeatherImage(text: string): string {
 		let path = './../../assets/';
 		switch (true) {
 			case text.includes('rain') || text.includes('drizzle'):
-				return {
-					color: '#8e8e8e',
-				}
+				return '#8e8e8e'
 
 			case text.includes('snow'):
-				return {
-					color: '#8c8b77',
-				}
+				return '#8c8b77'
 
 			case text.includes('Sunny'):
-				return {
-					color: '#00abef',
-				}
-			
-				case text.includes('Partly cloudy'):
-				return {
-					color: '#1a5b9c',
-				}
+				return '#00abef'
+
+			case text.includes('Partly cloudy'):
+				return '#1a5b9c'
 
 			case text.includes('Cloudy'):
-				return {
-					color: '#b3c5cc',
-				}
+				return '#b3c5cc'
 
 			default:
-				return {
-					color: '#33495f',
-				}
+				return '#33495f'
 		}
 	}
-}
-
-interface Background {
-	color: string,
-	imageURL: string
 }

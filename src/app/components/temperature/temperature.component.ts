@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Temperature } from '@app/shared/classes/weather';
 
 @Component({

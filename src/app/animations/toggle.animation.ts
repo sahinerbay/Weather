@@ -1,4 +1,4 @@
-import { trigger, state, animate, transition, style, query, stagger } from '@angular/animations';
+import { trigger, state, animate, transition, style } from '@angular/animations';
 
 export const ToggleAnimation =
 
@@ -11,18 +11,18 @@ export const ToggleAnimation =
             opacity: 0
         })),
         transition('show => hide', animate('900ms  ease-out')),
-        transition('hide => show', animate('400ms 500ms ease-in'))
+        transition('hide => show', animate('900ms 300ms ease-in'))
     ])
 
 export const SlideToggleAnimation =
     trigger('slideState', [
         state('show', style({
-            transform: 'translateY(-20px)'
+            transform: 'translateY(0px)'
         })),
         /*Initial state is 'hide'*/
         state('hide', style({
-            transform: 'translateY(-150px)'
+            transform: 'translateY(-120px)'
         })),
-        transition('show => hide', animate('900ms 500ms ease-out')),
+        transition('show => hide', animate('900ms 330ms ease-out')),
         transition('hide => show', animate('400ms ease-in'))
     ])

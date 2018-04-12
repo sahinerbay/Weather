@@ -3,25 +3,24 @@ import { HttpService } from './../../shared/services/http.service';
 import { Icons } from '@app/shared/models/icons';
 
 @Component({
-  selector: 'app-icon',
-  templateUrl: './icon.component.html',
-  styleUrls: ['./icon.component.css']
+	selector: 'app-icon',
+	templateUrl: './icon.component.html',
+	styleUrls: ['./icon.component.css']
 })
 export class IconComponent {
 
-  constructor(private httpService: HttpService) { }
+	constructor(private httpService: HttpService) { }
 
+	@Input()
+	public set icon(val: number) {
+		this.getIcon(val);
+	}
 
-  @Input() 
-  public set icon(val: number) {
-    this.getIcon(val);
-  }
+	iconURL: Icons;
 
-  iconURL: Icons;
-
-  getIcon(code: number) {
-    this.httpService.getIcons().subscribe((res: Array<Icons>) => {
-      this.iconURL = res.find(n => n.code === code)
-    })
-  }
+	getIcon(code: number) {
+		this.httpService.getIcons().subscribe((res: Array<Icons>) => {
+			this.iconURL = res.find((n: Icons) => n.code === code)
+		})
+	}
 }

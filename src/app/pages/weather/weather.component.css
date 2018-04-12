@@ -4,6 +4,8 @@
   flex-flow: column;
   background: #adab50;
   height: 100%;
+  background-repeat: no-repeat;
+  background-repeat: repeat-x;
 }
 
 :host() ::ng-deep app-search .box,
@@ -45,17 +47,15 @@
   flex-wrap: wrap;
 }
 
-.btn {
-  color: #fff;
+.show-more {
   display: block;
-  text-decoration: none;
   text-align: center;
-  font-size: 50px;
-  transform: rotate(90deg);
-  margin-top: 10px;
+  height: 43px;
+  width: 43px;
+  margin-left: 45%;
 }
 
-.btn:hover {
+.show-more:hover {
   cursor: pointer;
 }
 
@@ -65,6 +65,6 @@
   justify-content: space-around;
 }
 
-:host() /deep/ app-search-input app-search .box .container-4 input#search {
+:host() ::ng-deep app-search-input app-search .box .container-4 input#search {
   color: #fff;
 }

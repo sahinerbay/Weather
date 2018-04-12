@@ -23,6 +23,7 @@ import { TemperatureComponent } from './components/temperature/temperature.compo
 import { WeatherInfoComponent } from './components/weather-info/weather-info.component';
 import { FocusDirective } from './directives/focus.directive';
 import { DayComponent } from './components/day/day.component';
+import { BackgroundDirective } from './directives/background.directive';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { DayComponent } from './components/day/day.component';
     WeatherInfoComponent,
     FocusDirective,
     DayComponent,
+    BackgroundDirective,
   ],
   imports: [
     BrowserModule,

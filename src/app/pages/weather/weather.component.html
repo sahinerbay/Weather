@@ -1,23 +1,24 @@
-<div class="main" *ngIf="weatherData">
-  <app-search-input [sTerm]="searchTerm"></app-search-input>
+<div class="main" *ngIf="weatherData" [appBackground]="weatherData.getConditionBackground(dayIndex)">
+	<app-search-input [sTerm]="searchTerm"></app-search-input>
 
-  <app-icon *ngIf="weatherData" [icon]="weatherData?.getIconKey(dayIndex)"></app-icon>
-  <app-day [day] = "weatherData.getDay(dayIndex)"></app-day>
-  <app-temperature [temperature]="weatherData?.getTemperature(dayIndex)" [isVisible]="true"></app-temperature>
+	<app-icon *ngIf="weatherData" [icon]="weatherData?.getIconKey(dayIndex)"></app-icon>
+	<app-day [day]="weatherData.getDay(dayIndex)"></app-day>
+	<app-temperature [temperature]="weatherData?.getTemperature(dayIndex)" [isVisible]="true"></app-temperature>
 
-  <div [@popOverState]="stateName">
-    <div>
-      <app-weather-info [weatherInfo]="weatherData.getWeatherInfo(dayIndex)"></app-weather-info>
-    </div>
-    <div>
-      <app-sun-info [sunInfo]="weatherData?.getSunInfo(dayIndex)"></app-sun-info>
-    </div>
-  </div>
+	<div [@popOverState]="stateName">
+		<div>
+			<app-weather-info [weatherInfo]="weatherData.getWeatherInfo(dayIndex)"></app-weather-info>
+		</div>
+		<div>
+			<app-sun-info [sunInfo]="weatherData?.getSunInfo(dayIndex)"></app-sun-info>
+		</div>
+	</div>
 
-  <a href="" class="btn" (click)="onClickedShowMore($event)" [@slideState]="stateName">...</a>
+	<img class="show-more" (click)="onClickedShowMore($event)" [@slideState]="stateName" src="./../../../assets/show_more.gif"
+	 alt="">
 
-  <ul class="weekly">
-    <app-week *ngFor="let weekday of weatherData?.forecast.forecastday; let i = index" [weekday]="weekday" [iconURL]="weekday.day.condition.code"
-      [attr.data-id]="i" (click)="onClickDay($event)" [day] ="weatherData.getDay(i)"></app-week>
-  </ul>
+	<ul class="weekly">
+		<app-week *ngFor="let weekday of weatherData?.forecast.forecastday; let i = index" [weekday]="weekday" [iconURL]="weekday.day.condition.code"
+		 [attr.data-id]="i" (click)="onClickDay($event)" [day]="weatherData.getDay(i)"></app-week>
+	</ul>
 </div>
