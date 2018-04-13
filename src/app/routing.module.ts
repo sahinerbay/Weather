@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { HomeComponent } from './pages/home/home.component';
-import { WeatherComponent } from './pages/weather/weather.component';
+import { WeatherComponent } from './containers/weather/weather.component';
 
 const appRoutes: Routes = [
   { path: 'weather', component: WeatherComponent }, //remember path cannot start with a slash!

@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { LogoComponent } from './components/logo/logo.component';
-import { WeatherComponent } from './pages/weather/weather.component';
+import { WeatherComponent } from './containers/weather/weather.component';
 import { WeekComponent } from './components/week/week.component';
 import { SearchInputComponent } from './containers/search-input/search-input.component';
 import { AutoCompleteComponent } from './components/auto-complete/auto-complete.component';
