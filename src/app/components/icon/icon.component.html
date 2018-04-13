@@ -1,2 +1,3 @@
-<img class="loading" *ngIf="!iconURL" src="./../../../assets/loading.gif">
-<i class="wi {{iconURL?.icon}}"></i>
+<ng-content></ng-content>
+<!-- <img class="loading" *ngIf="!icon" src="./../../../assets/loading.gif"> -->
+<img class="icon" src={{icon}} alt="">

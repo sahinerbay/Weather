@@ -1,5 +1,9 @@
 :host() {
-    display: inline-block;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	padding: 0 5px;
+	border-right: 1px solid #ffffff6e;
 }
 
 :host() ::ng-deep app-icon :hover {
@@ -7,18 +11,28 @@
     cursor: pointer;
 }
 
-:host() ::ng-deep app-icon {
-    height: 100px;
+:host() ::ng-deep app-day p	 {
+	font-size: 13px;
 }
-
-:host() ::ng-deep app-icon .wi {
-    font-size: 50px;
+:host() ::ng-deep app-icon img {
+	margin-top: 15px;
+	vertical-align: unset;
+	width: 30px;
 }
-
-:host() ::ng-deep app-icon .wi:before {
-    line-height: 30px;
-  }
 
 :host() ::ng-deep app-min-max-temp .temp {
     font-size: 20px;
+}
+
+@media screen and (min-width: 900px) {
+	:host() {
+		padding: 0 15px;
+	}
+
+	:host() ::ng-deep app-day p	 {
+		font-size: 20px
+	}
+	:host() ::ng-deep app-icon img {
+		width: 45px;
+	}
 }

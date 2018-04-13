@@ -18,10 +18,6 @@
   display: block;
 }
 
-:host() ::ng-deep app-icon {
-  height: 300px;
-}
-
 :host() ::ng-deep app-icon .wi {
   font-size: 200px;
   padding-top: 30px;
@@ -42,9 +38,17 @@
   padding: 0;
   display: flex;
   width: 100%;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.weekly ::ng-deep	app-week:first-child {
+	padding-left: 0;
+}
+
+.weekly ::ng-deep	app-week:last-child {
+	border-right: none;
 }
 
 .show-more {
@@ -52,7 +56,6 @@
   text-align: center;
   height: 43px;
   width: 43px;
-  margin-left: 45%;
 }
 
 .show-more:hover {
@@ -62,9 +65,35 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+    padding: 0 20px;
 }
 
 :host() ::ng-deep app-search-input app-search .box .container-4 input#search {
   color: #fff;
+}
+
+.weather-header {
+	display:inherit;
+	margin-top: 300px;
+}
+
+.weather-header ::ng-deep app-day {
+	align-self: center;
+}
+
+.current-temperature {
+	color: white;
+	font-size: 3rem;
+	display: inline-block;
+}
+
+.current-temperature__degree {
+	margin-right: .5rem;
+}
+
+.weather-body {
+	display: inherit;
+	align-items: baseline;
 }

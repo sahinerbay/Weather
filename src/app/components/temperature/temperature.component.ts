@@ -9,6 +9,5 @@ import { Temperature } from '@app/shared/classes/weather';
 export class TemperatureComponent {
 
   @Input() temperature: Temperature;
-  @Input() isVisible : boolean;
 
 }

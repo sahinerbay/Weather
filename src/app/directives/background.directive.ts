@@ -18,10 +18,10 @@ export class BackgroundDirective {
 	}
 
 	getWeatherImage(text: string): string {
-		let path = './../../assets/';
+
 		switch (true) {
-			case text.includes('rain') || text.includes('drizzle'):
-				return '#8e8e8e'
+			case text.includes('rain') || text.includes('drizzle') || text.includes('Cloudy'):
+				return '#777777'
 
 			case text.includes('snow'):
 				return '#8c8b77'
@@ -31,9 +31,6 @@ export class BackgroundDirective {
 
 			case text.includes('Partly cloudy'):
 				return '#1a5b9c'
-
-			case text.includes('Cloudy'):
-				return '#b3c5cc'
 
 			default:
 				return '#33495f'

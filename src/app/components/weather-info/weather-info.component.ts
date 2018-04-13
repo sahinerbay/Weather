@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { WeatherInfo } from '@app/shared/classes/weather';
 
 @Component({
   selector: 'app-weather-info',
@@ -8,6 +7,6 @@ import { WeatherInfo } from '@app/shared/classes/weather';
 })
 export class WeatherInfoComponent  {
 
-  @Input() weatherInfo : WeatherInfo;
+  @Input() weatherInfo : string;
 
 }

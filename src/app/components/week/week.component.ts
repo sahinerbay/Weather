@@ -8,8 +8,7 @@ import { ForecastDay } from '@app/shared/classes/weather';
 })
 export class WeekComponent {
 
-  @Input() weekday: ForecastDay;
-  @Input() iconURL: number;
+  @Input() iconURL: string;
   @Input() day: string;
 
 }

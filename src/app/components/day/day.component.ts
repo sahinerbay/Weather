@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Date } from '@app/shared/classes/weather';
 
 @Component({
   selector: 'app-day',
@@ -7,6 +8,6 @@ import { Component, Input } from '@angular/core';
 })
 export class DayComponent {
 
-  @Input() day: string
+  @Input() day: Date
 
 }

@@ -1,14 +1,19 @@
 <div class="main" *ngIf="weatherData" [appBackground]="weatherData.getConditionBackground(dayIndex)">
 	<app-search-input [sTerm]="searchTerm"></app-search-input>
 
-	<app-icon *ngIf="weatherData" [icon]="weatherData?.getIconKey(dayIndex)"></app-icon>
-	<app-day [day]="weatherData.getDay(dayIndex)"></app-day>
-	<app-temperature [temperature]="weatherData?.getTemperature(dayIndex)" [isVisible]="true"></app-temperature>
+	<div class="weather-header">
+		<p class="current-temperature">{{weatherData?.getTemperature(dayIndex).avgtemp_c}}
+			<span class="current-temperature__degree">&#176;</span>
+		</p>
+		<app-icon *ngIf="weatherData" [icon]="weatherData?.getIconURL(dayIndex)"></app-icon>
+	</div>
+	
+	<div class="weather-body">
+		<app-weather-info [weatherInfo]="weatherData.getWeatherInfo(dayIndex)"></app-weather-info>
+		<app-temperature [temperature]="weatherData?.getTemperature(dayIndex)"></app-temperature>
+	</div>
 
 	<div [@popOverState]="stateName">
-		<div>
-			<app-weather-info [weatherInfo]="weatherData.getWeatherInfo(dayIndex)"></app-weather-info>
-		</div>
 		<div>
 			<app-sun-info [sunInfo]="weatherData?.getSunInfo(dayIndex)"></app-sun-info>
 		</div>
@@ -18,7 +23,7 @@
 	 alt="">
 
 	<ul class="weekly">
-		<app-week *ngFor="let weekday of weatherData?.forecast.forecastday; let i = index" [weekday]="weekday" [iconURL]="weekday.day.condition.code"
+		<app-week *ngFor="let weekday of weatherData?.forecast.forecastday; let i = index" [iconURL]="weekday.day.condition.icon"
 		 [attr.data-id]="i" (click)="onClickDay($event)" [day]="weatherData.getDay(i)"></app-week>
 	</ul>
 </div>

@@ -7,18 +7,15 @@ export class Weather {
 
 	getTemperature(index: number): Temperature {
 		return {
-			'avgtemp_c': this.forecast.forecastday[index].day.avgtemp_c,
-			'maxtemp_c': this.forecast.forecastday[index].day.maxtemp_c,
-			'mintemp_c': this.forecast.forecastday[index].day.maxtemp_c,
-			'feelslike_c': index == 0 ? this.current.feelslike_c : null
+			'avgtemp_c': +(this.forecast.forecastday[index].day.avgtemp_c).toFixed(0),
+			'maxtemp_c': +(this.forecast.forecastday[index].day.maxtemp_c).toFixed(0),
+			'mintemp_c': +(this.forecast.forecastday[index].day.mintemp_c).toFixed(0),
+			'feelslike_c': index == 0 ? +(this.current.feelslike_c).toFixed(0) : null
 		}
 	}
 
-	getWeatherInfo(index: number): WeatherInfo {
-		return {
-			'current': index == 0 ? this.current.condition.text : '',
-			'future': this.forecast.forecastday[index].day.condition.text
-		}
+	getWeatherInfo(index: number): string {
+		return index == 0 ? this.current.condition.text : this.forecast.forecastday[index].day.condition.text
 	}
 
 	getSunInfo(index: number): SunInfo {
@@ -28,13 +25,16 @@ export class Weather {
 		}
 	}
 
-	getIconKey(index: number): number {
-		return this.forecast.forecastday[index].day.condition.code;
+	getIconURL(index: number): string {
+		return index == 0 ? this.current.condition.icon : this.forecast.forecastday[index].day.condition.icon;
 	}
 
-	getDay(index: number): string {
+	getDay(index: number): Date {
 		let d = new Date(this.forecast.forecastday[index].date);
-		return d.toDateString().split(' ').shift();
+		return {
+			day : index == 0 ? 'Today' : d.toDateString().split(' ').shift(),
+			date : this.forecast.forecastday[index].date.slice(5).replace(/-/, '/')
+		}
 	}
 
 	getConditionBackground(index: number): string {
@@ -80,9 +80,9 @@ interface Astro {
 
 export interface Day {
 	avgtemp_c: number,
-	maxtemp_c: number
+	maxtemp_c: number,
+	mintemp_c: number,
 	condition?: Condition,
-	uv?: number
 }
 
 export interface Temperature {
@@ -92,12 +92,12 @@ export interface Temperature {
 	feelslike_c?: number
 }
 
-export interface WeatherInfo {
-	current: string,
-	future: string
-}
-
 export interface SunInfo {
 	sunrise: string,
 	sunset: string,
+}
+
+export interface Date {
+	day: string,
+	date: string
 }

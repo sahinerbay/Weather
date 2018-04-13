@@ -31,31 +31,11 @@ export class WeatherComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		// this.activeRoute.queryParamMap
-		//   .subscribe((params: ParamMap) => {
-		//     this.searchTerm = params.get('query');
-		//     this.httpService.getWeatherForecast(this.searchTerm).subscribe((res: Weather) => {
-
-		//       this.weatherData = res;
-		//       this.iconKey = res.current.condition.code;
-		//       console.log(res);
-		//       this.location = `${res.location.name}, ${res.location.country}`;
-
-		//       this.minMaxTemp = {
-		//         'avgtemp_c': res.forecast.forecastday[0].day.avgtemp_c,
-		//         'maxtemp_c': res.forecast.forecastday[0].day.maxtemp_c
-		//       }
-
-		//       this.condition = this.cityUtilService.getCondition(this.weatherData);
-
-		//       this.sunInfo = this.cityUtilService.getSunInfo(this.weatherData);
-		//     });
-		//   });
-
 		this.activeRoute.queryParamMap
 			.map((params: ParamMap) => params.get('query'))
 			.flatMap((query: string) => this.httpService.getWeatherForecast(query))
 			.subscribe((res: Weather) => {
+				console.log(res)
 				this.weatherData = res;
 				this.searchTerm = this.weatherData.getLocation()
 			})
