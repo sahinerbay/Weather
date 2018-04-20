@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-
+import { AutoComplete } from '@app/shared/models/auto-complete';
 @Component({
   selector: 'app-auto-complete',
   templateUrl: './auto-complete.component.html',
@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class AutoCompleteComponent {
 
-  @Input() city: string;
+  @Input() city: AutoComplete;
 
 }

@@ -35,7 +35,6 @@ export class WeatherComponent implements OnInit {
 			.map((params: ParamMap) => params.get('query'))
 			.flatMap((query: string) => this.httpService.getWeatherForecast(query))
 			.subscribe((res: Weather) => {
-				console.log(res)
 				this.weatherData = res;
 				this.searchTerm = this.weatherData.getLocation()
 			})
